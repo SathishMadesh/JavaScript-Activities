@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Events</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <style>
+        button {
+            width: 13rem;
+            height: 3rem;
+        }
+        .event-box {
+            margin-top: 5rem;
+        }
+    </style>
+</head>
+<body>
+    <h2 style="text-align: center; margin-top: 1rem;" >JavaScript Events</h2>
+
+    <div class="container">
+        <div class="row">
+            <div class="event-box col-lg-4">
+                <h3>OnMousover</h3>
+                <p>Mouseover to change button background color</p>
+                <button id="onmouseover" onmouseover="mouseover()" style="background-color: red;">OnMousover</button>
+            </div>
+            <div class="event-box col-lg-4">
+                <h3>OnMouseout</h3>
+                <p>Remove the mouse from the button.</p>
+                <button id="onmouseout" onmouseout="mouseout()" style="background-color: red;">OnMouseout</button>
+            </div>
+            <div class="event-box col-lg-4">
+                <h3>OnClick</h3>
+                <p>Click the button.</p>
+                <button id="onclick" onclick="afclick()" style="background-color: red;" >OnClick</button>
+            </div>
+            <div class="event-box col-lg-4">
+                <h3>Ondblclick</h3>
+                <p>Double click the buttion.</p>
+                <button id="doubleclick" ondblclick="dblclick()" style="background-color: red;" >Ondblclick</button>
+            </div>
+            <div class="event-box col-lg-4">
+                <h3>OnFocus</h3>
+                <p>Click the inputbox to highlight.</p>
+                <input id="onfocus" type="text" onfocus="foc()" style="width: 13rem; height: 3rem;" >
+            </div>
+            <div class="event-box col-lg-4">
+                <h3>OnBlur</h3>
+                <p>Call a function when a user leaves an input field.</p>
+                <input id="onblur" type="text" onblur="blr()" style="width: 13rem; height: 3rem;" >
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+
+    function mouseover () {
+        document.getElementById("onmouseover").style.backgroundColor = "orange";
+    }
+
+    function mouseout () {
+        document.getElementById("onmouseout").style.backgroundColor = "orange";
+    }
+
+    function afclick () {
+        document.getElementById("onclick").style.backgroundColor = "orange";
+    }
+
+    function dblclick () {
+        document.getElementById("doubleclick").style.backgroundColor = "orange" ;
+    }
+
+    function foc () {
+        document.getElementById("onfocus").style.backgroundColor = "pink" ;
+    }
+
+    function blr () {
+        document.getElementById("onblur").style.fontVariant = "small-caps" ;
+    }
+
+</script>
+
+</html>
