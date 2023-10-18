@@ -17,15 +17,36 @@
 
        <button onclick=" res ('Scissor'); ">Scissor</button>
 
+       <p id="update-result"></p>
+       
+       <p id="picks"></p>
+
+       <p id="update-score"></p>
+
        <button onclick="
         count.Win = 0;
         count.Lose = 0;
-        count.Tie = 0; ">Reset</button>
+        count.Tie = 0; 
+        localStorage.removeItem('count') 
+        updatingScore()">Reset</button>
 
     </div>
     <script>
 
-        let count = JSON.parse(localStorage.getItem('count'));
+        const onCount = JSON.parse(localStorage.getItem('count'));
+
+        let count = localStorage.getItem('count') !== null ?
+        onCount : {Win : 0, Lose : 0, Tie : 0};
+
+        let localStorageresult = result;
+
+        updatingScore();
+        
+        // updateResult();
+
+        // picks();
+
+        // document.querySelector("#picks").innerHTML = `You picked ${option} - Computer picked ${compRes}.`;
 
         function res (option) {
             const compRes = pickCompMove();
@@ -82,10 +103,26 @@
 
             localStorage.setItem('count', JSON.stringify(count));
 
-            alert (`You picked ${option}, Computer picked ${compRes}.${result}
-            \n Wins : ${count.Win} , Losses : ${count.Lose} , Ties : ${count.Tie}`)
+            updateResult(result); 
+            updatingScore();
+            picks (option,compRes);
+
+            return result;
 
         }
+
+        function picks (option,compRes) {
+            document.querySelector("#picks").innerHTML = `You picked ${option} - Computer picked ${compRes}.`;
+        };
+
+        function updatingScore (){
+            document.querySelector("#update-score").innerHTML = 
+            `Wins : ${count.Win} , Losses : ${count.Lose} , Ties : ${count.Tie}`;
+        }
+
+        function updateResult(result) {
+            document.querySelector("#update-result").innerHTML = `${result}`;
+        };
 
         function pickCompMove () {
             const ranNum = Math.random();

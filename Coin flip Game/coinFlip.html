@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coin Flip Game</title>
+</head>
+<body>
+    
+    <h1 style="text-align: center;" >Coin Flip Game</h1>
+
+    <h4 style="text-align: center;">Pick your choice.</h4>
+
+    <div style="display: flex; justify-content: center; align-items: center;">
+
+        <button onclick=" result('head') " style="margin: 5px 5px; width: 8rem; height: 2rem;">Heads</button>
+
+        <button onclick=" result('tail') " style="margin: 5px 5px; width: 8rem; height: 2rem;">Tails</button>
+
+        <button onclick="
+         points.Wins = 0 ; 
+         points.Losses = 0 ;
+         localStorage.removeItem('points')"
+         style="margin: 5px 5px; width: 8rem; height: 2rem;">Reset</button>
+
+    </div>
+</body>
+<script>
+
+    const onPoints = JSON.parse(localStorage.getItem('points')) ;
+
+    let points = localStorage.getItem('points') !== null ?
+    onPoints : {};
+
+    function result (arg1) {
+
+        const compick = comChoice ();
+
+        let res = '';
+
+        if (compick === 'head') {
+            if (arg1 === 'head'){
+                res = 'point';
+            }
+            else if (arg1 === 'tail') {
+                res = 'no point';
+            }
+        } else if (compick === 'tail') {
+            if (arg1 === 'head') {
+                res = 'no point';
+            }
+            else if (arg1 === 'tail') {
+                res = 'point'
+            }
+        }
+        
+        if (res === 'point') {
+            points.Wins += 1;
+        }
+        else if (res === 'no point') {
+            points.Losses += 1;
+        }
+
+        localStorage.setItem('points', JSON.stringify(points));
+
+        alert (`Your guess is ${arg1}. Result is ${compick}. You got ${res}
+        \n Wins : ${points.Wins} , Losses : ${points.Losses}`);
+    }
+
+    function comChoice () {
+        let ranNum = Math.random();
+
+        if (ranNum >= 0 && ranNum < 1/2) {
+            pick = 'head';
+        }
+        else if (ranNum >= 1/2 && ranNum < 1) {
+            pick = 'tail'
+        }
+        console.log(`computer ${pick}`);
+
+        return pick;
+    }
+
+</script>
+</html>
