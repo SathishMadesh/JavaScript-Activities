@@ -4,31 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock-Paper-Scissor</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <div>
+    <div class="game-title">
        <h2>Rock-Paper-Scissor</h2>
        <h3>Pick any one</h3>
     </div>
-    <div>
-       <button onclick=" res ('Rock'); ">Rock</button>
+    <div class="user-choice">
+       <button onclick=" res ('Rock'); "><img class="btn-img" src="rock-emoji.png" alt="rock-emoji"></button>
 
-       <button onclick=" res ('Paper'); ">Paper</button>
+       <button onclick=" res ('Paper'); "><img class="btn-img" src="paper-emoji.png" alt="paper-emoji"></button>
 
-       <button onclick=" res ('Scissor'); ">Scissor</button>
+       <button onclick=" res ('Scissor'); "><img class="btn-img" src="scissor-emoji.png" alt="scissors-emoji"></button>
 
-       <p id="update-result"></p>
+       <p id="update-result" class="result"></p>
        
-       <p id="picks"></p>
+       <p id="picks" class="picks"></p>
 
-       <p id="update-score"></p>
+       <p id="update-score" class="score"></p>
 
-       <button onclick="
+       <button class="rst-btn" onclick="
         count.Win = 0;
         count.Lose = 0;
         count.Tie = 0; 
         localStorage.removeItem('count') 
-        updatingScore()">Reset</button>
+        updatingScore()">Reset Score</button>
 
     </div>
     <script>
@@ -38,15 +39,7 @@
         let count = localStorage.getItem('count') !== null ?
         onCount : {Win : 0, Lose : 0, Tie : 0};
 
-        let localStorageresult = result;
-
         updatingScore();
-        
-        // updateResult();
-
-        // picks();
-
-        // document.querySelector("#picks").innerHTML = `You picked ${option} - Computer picked ${compRes}.`;
 
         function res (option) {
             const compRes = pickCompMove();
@@ -112,7 +105,9 @@
         }
 
         function picks (option,compRes) {
-            document.querySelector("#picks").innerHTML = `You picked ${option} - Computer picked ${compRes}.`;
+            document.querySelector("#picks").innerHTML = 
+            `You picked <img class="pick-icon" src="./${option}-emoji.png">
+              -  Computer picked <img class="pick-icon" src="./${compRes}-emoji.png">`;
         };
 
         function updatingScore (){
