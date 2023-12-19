@@ -47,3 +47,35 @@ function searchMovie(){
     let movieName = document.getElementById('search').value;
     console.log(movieName)   
 }
+
+
+function displayMovies(){
+    let movie = document.createElement("div");
+    movie.classList.add("movie");
+
+    let overlay = document.createElement("div");
+    overlay.classList.add("overlay");
+    let video = document.createElement("div");
+    video.classList.add("video");
+    let details = document.createElement("div");
+    details.classList.add("detailds");
+    let name = document.createElement("h1");
+    let rating = document.createElement("h2");
+    let casting = document.createElement("p");
+
+    let image = document.createElement("img");
+    image.classList.add("poster");
+
+    movie.appendChild(overlay);
+    movie.appendChild(image);
+    overlay.appendChild(video);
+    overlay.appendChild(details);
+    details.appendChild(name);
+    details.appendChild(rating);
+    details.appendChild(casting);
+    
+
+    console.log(movie);
+}
+
+displayMovies()
