@@ -14,11 +14,20 @@
         </div>
         <div class="search">
             <div class="search-bar">
-                <input class="search-box" type="text"/>
-                <img class="search-icon" src="https://cdn1.iconfinder.com/data/icons/hawcons/32/698627-icon-111-search-512.png" alt="">
+                <input id="search" onkeyup="searchMovie()" class="search-box" type="text" placeholder="Search Here"/>
+                <img class="search-icon" onclick="searchMovie()" src="https://cdn1.iconfinder.com/data/icons/hawcons/32/698627-icon-111-search-512.png" alt=""/>
             </div>
         </div>
     </header>
+
+    <div class="movies">
+
+        <div class="movie">
+            <div class="overly"></div>
+            <img class="poster" src="http://cdn.collider.com/wp-content/uploads/2019/03/avengers-endgame-poster.jpg" alt="">
+        </div>
+
+    </div>
 
     <script src="./script.js"></script>
 </body>
