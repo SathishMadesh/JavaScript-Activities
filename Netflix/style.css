@@ -63,6 +63,10 @@
     width: 100%;
     padding: 50px 5%;
     background-color: gray;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 6.66%;
+    row-gap: 20px;
 }
 
 .movie{
@@ -105,5 +109,5 @@
 
 .poster{
     width:100%;
-    
+    height: 100%;
 }
