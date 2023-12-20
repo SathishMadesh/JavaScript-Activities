@@ -79,7 +79,6 @@ function displayMovies(data){
                                     <div class="details">
                                         <h1>${data[i].name}</h1>
                                         <h2>IMDB : ${data[i].rating}</h2>
-                                        <p>Cris Evens | Robet Tony</p>
                                     </div>
 
                                 </div>
