@@ -56,8 +56,7 @@ function searchMovie(){
     else if(movieName===""){
         displayMovies(movies);
     }
-
-    
+        
 }
 
 
